@@ -1,0 +1,45 @@
+import java.io.*;
+import java.util.*;
+import java.lang.Math.*;
+
+public class Solution {
+
+    void solve(int ai, int bi, int ni)
+    {
+        int arr_newterm[] = new int[ni]; //array of new terms being added
+        int arr2[] = new int[ni];
+        int twos = 1;
+        for(int i=0; i<ni; i++)
+        {
+            arr_newterm[i]= (int) (Math.pow(2,i))*bi;
+        }
+        
+        arr2[0] = ai + arr_newterm[0];
+        System.out.print(arr2[0]+" ");
+        for(int k=1; k<ni; k++)
+        {
+            arr2[k] = arr2[k-1] + arr_newterm[k];
+            System.out.print(arr2[k]+" ");
+        }
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        
+        //creating an instance/object of solution class
+        
+        Solution obj = new Solution();
+        
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+            
+            obj.solve(a,b,n);
+        }
+        in.close();
+    }
+}
